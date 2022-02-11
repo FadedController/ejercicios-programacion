@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo 3</title>
+  </head>
+  <body>
+    <h1>Ejemplo 3</h1>
+    <script>
+      function Persona(primerNombre) {
+        this.primerNombre = primerNombre;
+      }
+
+      Persona.prototype.diHola = function () {
+        alert("Hola, Soy " + this.primerNombre);
+      };
+
+      var persona1 = new Persona("Alicia");
+      var persona2 = new Persona("Sebastian");
+      var funcionSaludar = persona1.diHola;
+
+      persona1.diHola();
+      persona2.diHola();
+      funcionSaludar();
+
+      alert(funcionSaludar === persona1.diHola);
+      alert(funcionSaludar === Persona.prototype.diHola);
+      funcionSaludar.call(persona1);
+    </script>
+  </body>
+</html>

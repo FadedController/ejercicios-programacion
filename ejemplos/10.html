@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo 10</title>
+  </head>
+  <body>
+    <h1>Ejemplo 10</h1>
+    <script>
+      class Vehiculo {
+        constructor(tipo, nombre, modelo, motor, precio) {
+          this.tipo = tipo;
+          this.modelo = modelo;
+          this.nombre = nombre;
+          this.motor = motor;
+          this.precio = precio;
+        }
+        Motor() {
+          return this.motor;
+        }
+
+        Describir() {
+          // Método para obtener el tipo, versión, motor y precio del vehículo
+          document.write(`Automóvil tipo: ${this.tipo}`);
+          document.write("<br>");
+          document.write(`Versión: ${this.nombre}`);
+          document.write("<br>");
+          document.write(`Motor: ${this.motor}`);
+          document.write("<br>");
+          document.write(`Precio $ ${this.precio}`);
+        }
+        Modelo() {
+          // Método para obtener el modelo del vehiculo
+          document.write(`Modelo: ${this.modelo}`);
+          document.write("<br>");
+        }
+      }
+      class Coche extends Vehiculo {
+        constructor(nombre, modelo) {
+          super("Sedan", nombre, 2022, "4 cil", 320000);
+        }
+      }
+      class Pickup extends Vehiculo {
+        constructor(nombre, modelo, precio) {
+          super("Camioneta carga", nombre, modelo, "6 cil", precio);
+        }
+      }
+      //Si ahora creamos nuevos objetos Coche y Pickup podemos utilizar los métodos de la clase Vehiculo
+      let Nissan = new Coche("Nissan Máxima", 2022); // Le enviamos el nombre del vehículo y el modelo
+      let Nissan2 = new Pickup("Nissan Estaquitas", 2021, 390000); // Le enviamos el nombre de la Pickup
+      let Nissan3 = new Pickup("Nissan C110", 2022, 375000); // Le enviamos el nombre de la Pickup
+      Nissan.Describir(); //
+      document.write("<br>");
+      Nissan.Modelo(); //
+      document.write("<br>");
+
+      Nissan2.Describir(); //
+      document.write("<br>");
+      Nissan2.Modelo(); //
+
+      document.write("<br>");
+      Nissan3.Describir(); //
+      document.write("<br>");
+      Nissan3.Modelo(); //
+      document.write("Tipo de Motor: " + Nissan3.Motor());
+    </script>
+  </body>
+</html>

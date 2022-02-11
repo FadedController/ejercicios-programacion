@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite & tailwindcss -i ./styles/input.css -o style.css --watch",
+    "dev": "vite & tailwindcss -i ./styles/input.css -o ./styles/styles.css --watch",
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "netlify deploy --dir=dist --prod"

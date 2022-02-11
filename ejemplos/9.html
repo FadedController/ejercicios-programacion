@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo 9</title>
+  </head>
+  <body>
+    <h1>Ejemplo 9</h1>
+    <script>
+      class Persona {
+        constructor(nombre, apellidos, edad, peso) {
+          this.nombre = nombre;
+          this.apellidos = apellidos;
+          this.edad = edad;
+          this.peso = peso;
+        }
+        Incrementa_edad() {
+          this.edad++;
+        }
+        Mostrar_nombre() {
+          return this.nombre;
+        }
+        Mostrar_apellidos() {
+          return this.apellidos;
+        }
+        Mostrar_edad() {
+          return this.edad;
+        }
+        Mostrar_peso() {
+          return this.peso;
+        }
+      } // Aquí termina la definición de la clase y sus métodos miembro
+      let objeto = new Persona("Jesús", "Fernández López", 60, 85);
+      objeto.Incrementa_edad();
+      document.write(objeto.Mostrar_nombre());
+      document.write(" ");
+      document.write(objeto.Mostrar_apellidos());
+      document.write(" ");
+      document.write(objeto.Mostrar_edad());
+      document.write("<hr><br>");
+      document.write("Peso: " + objeto.Mostrar_peso());
+      document.write("<hr><br>");
+    </script>
+  </body>
+</html>
