@@ -26,15 +26,17 @@ jobs:
           node-version: 16.x
 
       # Run npm install and build on our code
-      - run: npm install
-      - run: npm run build --if-present
+      - run: yarn
+      - run: yarn build
 
       # Deploy to Netlify using our production secrets
       - name: Deploy to netlify
-        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: deploy --dir=dist --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+        run: |
+          yarn global add netlify-cli
+          "$(yarn global bin)/netlify" deploy --dir=dist --prod
+        
+ 
+
