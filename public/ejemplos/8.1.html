@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
     <title>Ejemplo 8.1</title>
   </head>
   <body>
-    <h1>Ejemplo 8.1</h1>
-    <h2>Resultados en la consola</h2>
-    <p>Presiona F12 para abir la consola</p>
+    <div class="app">
+      <h1>Ejemplo 8.1</h1>
+      <div id="logs">
+        <h1>Console.log logs</h1>
+        <!-- Logs generated with javascript when global alert() gets called -->
+      </div>
+      <div id="nav">
+        <!-- Links generated with javascript -->
+      </div>
+    </div>
+    <script src="../js/console_log.js"></script>
+    <script src="../js/nav.js"></script>
     <script>
       class Factura {
         constructor(numero, cliente, divisa, subtotal, IVA) {
