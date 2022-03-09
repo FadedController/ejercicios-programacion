@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ejemplo 11</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Ejemplo 11</h1>
+      <div id="logs">
+        <h1>Logs</h1>
+      </div>
+      <div id="nav"></div>
+    </div>
+    <script src="../js/document_write.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+      let print = (str) => document.write(str);
+
+      class Persona {
+        constructor(clave, nombre, apellido, direccion, telefono, edad, sexo) {
+          this.clave = clave;
+          this.nombre = nombre;
+          this.apellido = apellido;
+          this.direccion = direccion;
+          this.telefono = telefono;
+          this.edad = edad;
+          this.sexo = sexo;
+        }
+
+        describir() {
+          print(`Clave: ${this.clave} <br>`);
+          print(`Nombre: ${this.nombre} <br>`);
+          print(`Apellido: ${this.apellido} <br>`);
+          print(`Direccion: ${this.direccion} <br>`);
+          print(`Telefono: ${this.telefono} <br>`);
+          print(`Edad: ${this.edad} <br>`);
+          print(`Sexo: ${this.sexo} <br>`);
+        }
+      }
+
+      class Maestro extends Persona {
+        constructor(
+          clave,
+          nombre,
+          apellido,
+          direccion,
+          telefono,
+          edad,
+          sexo,
+          sueldo,
+          num_seguro
+        ) {
+          super(clave, nombre, apellido, direccion, telefono, edad, sexo);
+          this.sueldo = sueldo;
+          this.num_seguro = num_seguro;
+        }
+
+        decir_sueldo() {
+          print(`Sueldo: ${this.sueldo} <br>`);
+        }
+
+        decir_num_seguro() {
+          print(`Numero de seguro: ${this.num_seguro} <br>`);
+        }
+      }
+
+      class Alumno extends Persona {
+        constructor(
+          clave,
+          nombre,
+          apellido,
+          direccion,
+          telefono,
+          edad,
+          sexo,
+          promedio
+        ) {
+          super(clave, nombre, apellido, direccion, telefono, edad, sexo);
+          this.promedio = promedio;
+        }
+
+        decir_promedio() {
+          print(`Promedio: ${this.promedio} <br>`);
+        }
+      }
+
+      let profe1 = new Maestro(
+        0001,
+        "Jorge",
+        "López",
+        "Calle Falsa 123",
+        "55555555",
+        45,
+        "Masculino",
+        15000,
+        "123456789"
+      );
+
+      let alumno1 = new Alumno(
+        3323,
+        "Axel",
+        "Padilla",
+        "Calle Falsa 123",
+        "55555555",
+        17,
+        "Masculino",
+        90
+      );
+
+      print("<h3>Maestros</h3>");
+      profe1.decir_num_seguro();
+      profe1.decir_sueldo();
+      profe1.describir();
+
+      print("<h3>Alumnos</h3>");
+      alumno1.decir_promedio();
+      alumno1.describir();
+    </script>
+  </body>
+</html>

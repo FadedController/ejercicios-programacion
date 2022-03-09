@@ -52,4 +52,8 @@
   #nav a {
     @apply rounded-md bg-indigo-700 px-4 py-2 text-center text-lg text-gray-100 transition-colors hover:bg-indigo-600 hover:underline;
   }
+
+  button {
+    @apply rounded-md bg-green-500 px-4 py-2 text-center text-lg text-gray-100 transition-colors hover:bg-green-600 hover:underline;
+  }
 }

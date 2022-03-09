@@ -5,7 +5,7 @@ const currentExample = parseFloat(
   splitUrl[splitUrl.length - 1].replace(".html", "")
 );
 
-const examples = [1, 2, 3, 4, 5, 6, 7, 8.1, 8.2, 9, 10];
+const examples = [1, 2, 3, 4, 5, 6, 7, 8.1, 8.2, 9, 10, 11, 12];
 
 const prevExample = examples[examples.indexOf(currentExample) - 1];
 const nextExample = examples[examples.indexOf(currentExample) + 1];
@@ -22,7 +22,7 @@ homeLink.innerText = "Volver a inicio";
 homeLink.href = "../index.html";
 navDiv.appendChild(homeLink);
 
-if (nextExample <= 10) {
+if (nextExample <= 12) {
   const nextLink = document.createElement("a");
   nextLink.innerText = "Ir a ejemplo " + nextExample;
   nextLink.href = "./" + nextExample + ".html";

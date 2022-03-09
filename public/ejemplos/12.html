@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ejemplo 12</title>
+  </head>
+  <script src="../js/document_write.js"></script>
+  <script src="../js/alert.js"></script>
+  <script src="../js/prompt.js"></script>
+  <script>
+    function altaprof() {
+      alert("Altas de profesores");
+      var clave, nombre, apellidos, direccion, telefono, edad, sexo;
+      clave = prompt("Introduce la clave:", "");
+      nombre = prompt("Introduce el nombre:", "");
+      apellidos = prompt("Introduce los apellidos:", "");
+      direccion = prompt("Introduce la dirección:", "");
+      telefono = prompt("Introduce el teléfono:", "");
+      edad = prompt("Introduce la edad:", "");
+      sexo = prompt("Introduce el sexo:", "");
+
+      class Persona {
+        constructor(clave, nombre, apellido, direccion, telefono, edad, sexo) {
+          this.clave = clave;
+          this.nombre = nombre;
+          this.apellido = apellido;
+          this.direccion = direccion;
+          this.telefono = telefono;
+          this.edad = edad;
+          this.sexo = sexo;
+        }
+        Describir() {
+          // Método para obtener datos generales de una Persona
+          document.write(`Clave: ${this.clave}`);
+          document.write(`Nombre: ${this.nombre}`);
+          document.write(`Apellido: ${this.apellido}`);
+          document.write(`Direccion: ${this.direccion}`);
+          document.write(`Telefono: ${this.telefono}`);
+          document.write(`Edad: ${this.edad}`);
+          document.write(`Sexo: ${this.sexo}`);
+        }
+      }
+
+      class Maestro extends Persona {
+        constructor(
+          clave,
+          nombre,
+          apellido,
+          direccion,
+          telefono,
+          edad,
+          sexo,
+          sueldo,
+          num_seguro
+        ) {
+          super(clave, nombre, apellido, direccion, telefono, edad, sexo);
+          this.sueldo = sueldo;
+          this.num_seguro = num_seguro;
+        }
+      }
+
+      let profe1 = new Maestro(
+        clave,
+        nombre,
+        apellidos,
+        direccion,
+        telefono,
+        edad,
+        sexo,
+        34950,
+        89829908
+      );
+
+      // let profe1 = new Maestro(89829908, 34950);
+      document.write("PROFESORES:");
+      profe1.Describir();
+      document.write("Numero de seguro: " + profe1.num_seguro);
+      document.write("Sueldo: $" + profe1.sueldo);
+    }
+  </script>
+  <body>
+    <div class="app">
+      <h1>Ejemplo 12</h1>
+      <div>
+        <button onclick="altaprof();">Altas Profesores</button>
+      </div>
+      <div id="logs">
+        <h1>Logs</h1>
+      </div>
+      <div id="nav"></div>
+    </div>
+    <script src="../js/nav.js"></script>
+  </body>
+</html>
