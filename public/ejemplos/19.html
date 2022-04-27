@@ -1,0 +1,45 @@
+!<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ejemplo 19</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Ejemplo 19</h1>
+      <div>
+        <button onclick="crearPendiente();">Crear pendiente</button>
+      </div>
+      <div id="logs">
+        <h1>Logs</h1>
+        <!-- Logs generated with javascript when global alert() gets called -->
+      </div>
+      <div id="nav">
+        <!-- Links generated with javascript -->
+      </div>
+    </div>
+    <script src="../js/document_write.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+      function Pendiente([x1, y1], [x2, y2]) {
+        this.calcular = () => (y2 - y1) / (x2 - x1);
+        this.get1 = () => `(${[x1, y1].toString()})`;
+        this.get2 = () => `(${[x2, y2].toString()})`;
+      }
+
+      function crearPendiente() {
+        const x1 = prompt("Ingrese el valor de x1");
+        const y1 = prompt("Ingrese el valor de y1");
+        const x2 = prompt("Ingrese el valor de x2");
+        const y2 = prompt("Ingrese el valor de y2");
+        const pendiente = new Pendiente([x1, y1], [x2, y2]);
+        document.write(
+          `La pendiente de ${pendiente.get1()} a ${pendiente.get2()} es ${pendiente.calcular()}`
+        );
+      }
+    </script>
+  </body>
+</html>

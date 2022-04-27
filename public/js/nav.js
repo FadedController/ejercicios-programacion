@@ -5,7 +5,9 @@ const currentExample = parseFloat(
   splitUrl[splitUrl.length - 1].replace(".html", "")
 );
 
-const examples = [1, 2, 3, 4, 5, 6, 7, 8.1, 8.2, 9, 10, 11, 12, 13, 14, 15];
+const examples = [
+  1, 2, 3, 4, 5, 6, 7, 8.1, 8.2, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+];
 
 const prevExample = examples[examples.indexOf(currentExample) - 1];
 const nextExample = examples[examples.indexOf(currentExample) + 1];

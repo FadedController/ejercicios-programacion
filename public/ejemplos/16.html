@@ -1,0 +1,54 @@
+!<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ejemplo 16</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Ejemplo 16</h1>
+      <div>
+        <button onclick="crearRectangulo()">Crear Rectangulo</button>
+      </div>
+      <div id="logs">
+        <h1>Logs</h1>
+        <!-- Logs generated with javascript when global alert() gets called -->
+      </div>
+      <div id="nav">
+        <!-- Links generated with javascript -->
+      </div>
+    </div>
+    <script src="../js/document_write.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+      function Rectangulo(base, altura) {
+        var base = base;
+        var altura = altura;
+
+        this.calcularArea = () => base * altura;
+        this.getBase = () => base;
+        this.getAltura = () => altura;
+
+        this.incrementarBase = () => base++;
+        this.incrementarAltura = () => altura++;
+
+        this.incrementar = () => {
+          this.incrementarBase();
+          this.incrementarAltura();
+        };
+      }
+
+      function crearRectangulo() {
+        const base = prompt("Ingrese la base del rectangulo");
+        const altura = prompt("Ingrese la altura del rectangulo");
+        const rectangulo = new Rectangulo(base, altura);
+        document.write(
+          `Un rectangulo de base ${rectangulo.getBase()} y altura ${rectangulo.getAltura()} tiene un área de ${rectangulo.calcularArea()}`
+        );
+      }
+    </script>
+  </body>
+</html>
