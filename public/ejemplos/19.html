@@ -25,6 +25,11 @@
     <script src="../js/nav.js"></script>
     <script>
       function Pendiente([x1, y1], [x2, y2]) {
+        const p = parseInt;
+
+        var [x1, x2] = [p(x1), p(x2)];
+        var [y1, y2] = [p(y1), p(y2)];
+
         this.calcular = () => (y2 - y1) / (x2 - x1);
         this.get1 = () => `(${[x1, y1].toString()})`;
         this.get2 = () => `(${[x2, y2].toString()})`;

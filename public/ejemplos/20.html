@@ -24,20 +24,26 @@
     <script src="../js/document_write.js"></script>
     <script src="../js/nav.js"></script>
     <script>
-      function Trapecio(B, b, h) {
-        this.calcular = () => ((B + b) * h) / 2;
-        this.getB = () => B;
-        this.getb = () => b;
-        this.geth = () => h;
+      function Trapecio(baseMayor, baseMenor, altura) {
+        const p = parseInt;
+
+        var baseMayor = p(baseMayor);
+        var baseMenor = p(baseMenor);
+        var altura = p(altura);
+
+        this.calcular = () => ((baseMayor + baseMenor) * altura) / 2;
+        this.getBaseMayor = () => baseMayor;
+        this.getBaseMenor = () => baseMenor;
+        this.getAltura = () => altura;
       }
 
       function crearTrapecio() {
-        const B = prompt("Ingrese el valor de B");
-        const b = prompt("Ingrese el valor de b");
+        const baseMayor = prompt("Ingrese el valor de B");
+        const baseMenor = prompt("Ingrese el valor de b");
         const h = prompt("Ingrese el valor de h");
-        const trapecio = new Trapecio(B, b, h);
+        const trapecio = new Trapecio(baseMayor, baseMenor, h);
         document.write(
-          `El area del trapecio de base mayor ${trapecio.getB()} y base menor ${trapecio.getb()} y altura ${trapecio.geth()} es ${trapecio.calcular()}`
+          `El area del trapecio de base mayor ${trapecio.getBaseMayor()} y base menor ${trapecio.getBaseMenor()} y altura ${trapecio.getAltura()} es ${trapecio.calcular()}`
         );
       }
     </script>

@@ -39,6 +39,11 @@
       }
 
       function Triangulo(base, altura) {
+        const p = parseInt;
+
+        var base = p(base);
+        var altura = p(altura);
+
         this.calcularArea = () => (base * altura) / 2;
         this.getBase = () => base;
         this.getAltura = () => altura;

@@ -25,8 +25,10 @@
     <script src="../js/nav.js"></script>
     <script>
       function Rectangulo(base, altura) {
-        var base = base;
-        var altura = altura;
+        const p = parseInt;
+
+        var base = p(base);
+        var altura = p(altura);
 
         this.calcularArea = () => base * altura;
         this.getBase = () => base;

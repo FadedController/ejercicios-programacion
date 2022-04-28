@@ -25,6 +25,10 @@
     <script src="../js/nav.js"></script>
     <script>
       function Circulo(radio) {
+        const p = parseInt;
+
+        var radio = p(radio);
+
         this.calcularArea = () => Math.PI * Math.pow(radio, 2);
         this.getRadio = () => radio;
       }
