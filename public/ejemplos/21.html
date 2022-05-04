@@ -1,0 +1,117 @@
+!<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ejemplo 21</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Ejemplo 21</h1>
+      <div><button onclick="main()">Iniciar loop</button></div>
+      <div id="logs">
+        <h1>Logs</h1>
+        <!-- Logs generated with javascript when global alert() gets called -->
+      </div>
+      <div id="nav">
+        <!-- Links generated with javascript -->
+      </div>
+    </div>
+    <script src="../js/document_write.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+      function main() {
+        while (true) {
+          crearCirculo();
+          crearTriangulo();
+          crearPendiente();
+          crearTrapecio();
+
+          const ans = prompt("¿Desea continuar? (Y/N)");
+
+          if (ans !== "Y") break;
+        }
+      }
+
+      function Circulo(radio) {
+        this.calcularArea = () => Math.PI * Math.pow(radio, 2);
+        this.getRadio = () => radio;
+      }
+
+      function crearCirculo() {
+        const radio = prompt("Ingrese el radio del circulo");
+        const circulo = new Circulo(radio);
+        document.write(
+          `Un circulo de radio ${circulo.getRadio()} tiene un área de ${circulo.calcularArea()}`
+        );
+      }
+
+      function Triangulo(base, altura) {
+        const p = parseInt;
+
+        var base = p(base);
+        var altura = p(altura);
+
+        this.calcularArea = () => (base * altura) / 2;
+        this.getBase = () => base;
+        this.getAltura = () => altura;
+      }
+
+      function crearTriangulo() {
+        const base = prompt("Ingrese la base del triangulo");
+        const altura = prompt("Ingrese la altura del triangulo");
+        const triangulo = new Triangulo(base, altura);
+        document.write(
+          `Un triangulo de base ${triangulo.getBase()} y altura ${triangulo.getAltura()} tiene un área de ${triangulo.calcularArea()}`
+        );
+      }
+
+      function Pendiente([x1, y1], [x2, y2]) {
+        const p = parseInt;
+
+        var [x1, x2] = [p(x1), p(x2)];
+        var [y1, y2] = [p(y1), p(y2)];
+
+        this.calcular = () => (y2 - y1) / (x2 - x1);
+        this.get1 = () => `(${[x1, y1].toString()})`;
+        this.get2 = () => `(${[x2, y2].toString()})`;
+      }
+
+      function crearPendiente() {
+        const x1 = prompt("Ingrese el valor de x1");
+        const y1 = prompt("Ingrese el valor de y1");
+        const x2 = prompt("Ingrese el valor de x2");
+        const y2 = prompt("Ingrese el valor de y2");
+        const pendiente = new Pendiente([x1, y1], [x2, y2]);
+        document.write(
+          `La pendiente de ${pendiente.get1()} a ${pendiente.get2()} es ${pendiente.calcular()}`
+        );
+      }
+
+      function Trapecio(baseMayor, baseMenor, altura) {
+        const p = parseInt;
+
+        var baseMayor = p(baseMayor);
+        var baseMenor = p(baseMenor);
+        var altura = p(altura);
+
+        this.calcular = () => ((baseMayor + baseMenor) * altura) / 2;
+        this.getBaseMayor = () => baseMayor;
+        this.getBaseMenor = () => baseMenor;
+        this.getAltura = () => altura;
+      }
+
+      function crearTrapecio() {
+        const baseMayor = prompt("Ingrese el valor de B");
+        const baseMenor = prompt("Ingrese el valor de b");
+        const h = prompt("Ingrese el valor de h");
+        const trapecio = new Trapecio(baseMayor, baseMenor, h);
+        document.write(
+          `El area del trapecio de base mayor ${trapecio.getBaseMayor()} y base menor ${trapecio.getBaseMenor()} y altura ${trapecio.getAltura()} es ${trapecio.calcular()}`
+        );
+      }
+    </script>
+  </body>
+</html>

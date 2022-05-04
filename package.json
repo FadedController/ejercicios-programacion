@@ -6,7 +6,8 @@
     "dev": "vite & tailwindcss -i ./styles/input.css -o ./public/styles.css --watch",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "netlify deploy --dir=dist --prod"
+    "deploy": "netlify deploy --dir=dist --prod",
+    "export": "rm dist.zip && zip -r dist.zip dist/"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.1",
