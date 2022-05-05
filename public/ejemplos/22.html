@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles.css" />
-    <title>Ejemplo 21</title>
+    <title>Ejemplo 22</title>
   </head>
   <body>
     <div class="app">
-      <h1>Ejemplo 21</h1>
+      <h1>Ejemplo 22</h1>
       <div>
-        <button onclick="crearEsfera()">Crear esfera</button>
-        <button onclick="crearCilindro()">Crear cilindro</button>
+        <button onclick="calcular()">Calcular volumenes</button>
       </div>
       <div id="logs">
         <h1>Logs</h1>
@@ -26,6 +25,16 @@
     <script src="../js/nav.js"></script>
     <script>
       // Calcular volumenes de los polígonos regulares
+      function calcular() {
+        while (true) {
+          crearCilindro();
+          crearEsfera();
+
+          const ans = prompt("¿Desea continuar? (Y/N)");
+
+          if (ans !== "Y") break;
+        }
+      }
 
       // Esfera
       class Cilindro {
