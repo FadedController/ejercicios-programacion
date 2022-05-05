@@ -1,0 +1,73 @@
+!<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ejemplo 21</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Ejemplo 21</h1>
+      <div>
+        <button onclick="crearEsfera()">Crear esfera</button>
+        <button onclick="crearCilindro()">Crear cilindro</button>
+      </div>
+      <div id="logs">
+        <h1>Logs</h1>
+        <!-- Logs generated with javascript when global alert() gets called -->
+      </div>
+      <div id="nav">
+        <!-- Links generated with javascript -->
+      </div>
+    </div>
+    <script src="../js/document_write.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+      // Calcular volumenes de los polígonos regulares
+
+      // Esfera
+      class Cilindro {
+        constructor(radio, altura) {
+          const p = parseInt;
+          this.radio = p(radio);
+          this.altura = p(altura);
+        }
+
+        get volumen() {
+          return Math.PI * Math.pow(this.radio, 2) * this.altura;
+        }
+      }
+
+      function crearCilindro() {
+        const radio = prompt("Ingrese el radio del cilindro");
+        const altura = prompt("Ingrese la altura del cilindro");
+        const cilindro = new Cilindro(radio, altura);
+        document.write(
+          `Un cilindro de radio ${cilindro.radio} y altura ${cilindro.altura} tiene un volumen de ${cilindro.volumen}`
+        );
+      }
+
+      // Cilindro
+      class Esfera {
+        constructor(radio) {
+          const p = parseInt;
+          this.radio = p(radio);
+        }
+
+        get volumen() {
+          return (4 / 3) * Math.PI * Math.pow(this.radio, 3);
+        }
+      }
+
+      function crearEsfera() {
+        const radio = prompt("Ingrese el radio de la esfera");
+        const esfera = new Esfera(radio);
+        document.write(
+          `Una esfera de radio ${esfera.radio} tiene un volumen de ${esfera.volumen}`
+        );
+      }
+    </script>
+  </body>
+</html>
