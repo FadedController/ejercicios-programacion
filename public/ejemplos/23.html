@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>Ejemplo 22</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Ejemplo 23</h1>
+      <div>
+        <button onclick="mainObrero()">Agregar obreros</button>
+        <button onclick="mainDirectivo()">Agregar directivos</button>
+      </div>
+      <div id="logs">
+        <h1>Logs</h1>
+        <!-- Logs generated with javascript when global alert() gets called -->
+      </div>
+      <div id="nav">
+        <!-- Links generated with javascript -->
+      </div>
+    </div>
+    <script src="../js/document_write.js"></script>
+    <script src="../js/nav.js"></script>
+    <script>
+      class Trabajador {
+        constructor(id, nombre, direccion, telefono, edad, sueldo) {
+          this.id = id;
+          this.nombre = nombre;
+          this.direccion = direccion;
+          this.telefono = telefono;
+          this.edad = edad;
+          this.sueldo = sueldo;
+        }
+
+        Describir() {
+          document.write(`La id del trabajador es: ${this.id}`);
+          document.write(`El nombre del trabajador es: ${this.nombre}`);
+          document.write(
+            `La direccion de este trabajador es: ${this.direccion}`
+          );
+          document.write(`El teléfono de este trabajador es: ${this.telefono}`);
+          document.write(`La edad de este trabajador es: ${this.edad}`);
+          document.write(`El sueldo de este trabajador es: ${this.sueldo}`);
+        }
+      }
+
+      class Obrero extends Trabajador {
+        constructor(
+          id,
+          nombre,
+          direccion,
+          telefono,
+          edad,
+          sueldo,
+          categoria,
+          antiguedad,
+          horario,
+          bono
+        ) {
+          super(id, nombre, direccion, telefono, edad, sueldo);
+          this.categoria = categoria;
+          this.antiguedad = antiguedad;
+          this.horario = horario;
+          this.bono = bono;
+        }
+
+        Describir() {
+          super.Describir();
+          document.write(
+            `La categoría de este trabajador es: ${this.categoria}`
+          );
+          document.write(
+            `La antiguedad de este trabajador es: ${this.antiguedad}`
+          );
+          document.write(`El horario de este trabajador es: ${this.horario}`);
+          document.write(`El bono de este trabajador es: ${this.bono}`);
+        }
+      }
+
+      class Directivo extends Trabajador {
+        constructor(
+          id,
+          nombre,
+          direccion,
+          telefono,
+          edad,
+          sueldo,
+          puesto,
+          area
+        ) {
+          super(id, nombre, direccion, telefono, edad, sueldo);
+          this.puesto = puesto;
+          this.area = area;
+        }
+
+        Describir() {
+          super.Describir();
+          document.write(`El puesto de este trabajador es: ${this.puesto}`);
+          document.write(`El area de este trabajador es: ${this.area}`);
+        }
+      }
+
+      function mainObrero() {
+        while (true) {
+          altaObrero();
+
+          const resp = prompt("Desea dar de alta mas obreros? (Y/N)");
+          if (resp !== "Y") break;
+        }
+      }
+
+      function mainDirectivo() {
+        while (true) {
+          altaDirectivo();
+
+          const resp = prompt("Desea dar de alta mas directivos? (Y/N)");
+          if (resp !== "Y") break;
+        }
+      }
+
+      function altaObrero() {
+        const id = prompt("Introduce un id");
+        const nombre = prompt("Introduce un nombre");
+        const direccion = prompt("Introduce una direccion");
+        const telefono = prompt("Introduce un teléfono");
+        const edad = prompt("Introduce una edad");
+        const sueldo = prompt("Introduce un sueldo");
+        const categoria = prompt("Introduce una categoría");
+        const antiguedad = prompt("Introduce una antiguedad");
+        const horario = prompt("Introduce un horario");
+        const bono = prompt("Introduce un bono");
+
+        const obrero = new Obrero(
+          id,
+          nombre,
+          direccion,
+          telefono,
+          edad,
+          sueldo,
+          categoria,
+          antiguedad,
+          horario,
+          bono
+        );
+        obrero.Describir();
+      }
+
+      function altaDirectivo() {
+        const id = prompt("Introduce un id");
+        const nombre = prompt("Introduce un nombre");
+        const direccion = prompt("Introduce una direccion");
+        const telefono = prompt("Introduce un teléfono");
+        const edad = prompt("Introduce una edad");
+        const sueldo = prompt("Introduce un sueldo");
+        const puesto = prompt("Introduce un puesto");
+        const area = prompt("Introduce una area");
+
+        const directivo = new Directivo(
+          id,
+          nombre,
+          direccion,
+          telefono,
+          edad,
+          sueldo,
+          puesto,
+          area
+        );
+        directivo.Describir();
+      }
+    </script>
+  </body>
+</html>
